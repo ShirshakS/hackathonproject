@@ -2,10 +2,49 @@ import { useState } from "react";
 
 export default function CareerForm() {
   const [title, setTitle] = useState("");
+  const [titleError, setTitleError] = useState("");
   const [yoe, setYoe] = useState("");
   const [stack, setStack] = useState("");
+  const [stackError, setStackError] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState("");
+
+  const validateForm = (field, value) => {
+    switch (field)
+    {
+        case "title":
+            setTitle(value);
+            if(!isNaN(value))
+            {
+                setTitleError("Enter a valid title");
+            }
+            else
+            {
+                setTitleError("");
+            }
+        case "stack":
+            setStack(value);
+            if(!isNaN(value))
+            {
+                setStackError("Enter a valid tech stack");
+            }
+            else
+            {
+                setStackError("");
+            }
+        case "yoe":
+            setYoe(value);
+            if(isNaN(value) || value < 0)
+            {
+                setYoeError("Enter a valid number of years");
+            }
+            else
+            {
+                setYoeError("");
+            }
+    }
+
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,7 +75,7 @@ export default function CareerForm() {
             id="job-title"
             type="text"
             value={title}
-            onChange={e => setTitle(e.target.value)}
+            onChange={e => validateForm("title", e.target.value)}
             placeholder="e.g. Frontend Developer"
             required
           />
@@ -47,7 +86,7 @@ export default function CareerForm() {
             id="yoe"
             type="number"
             value={yoe}
-            onChange={e => setYoe(e.target.value)}
+            onChange={e => validateForm("yoe", e.target.value)}
             min="0"
             placeholder="e.g. 3"
             required
@@ -59,7 +98,7 @@ export default function CareerForm() {
             id="stack"
             type="text"
             value={stack}
-            onChange={e => setStack(e.target.value)}
+            onChange={e => validateForm("stack", e.target.value)}
             placeholder="e.g. React, Node.js, AWS"
             required
           />
