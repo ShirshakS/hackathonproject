@@ -9,8 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dotenv": "^17.2.1",
+    "html-react-parser": "^5.2.6",
+    "next": "15.4.7",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.4.7"
+    "react-dom": "19.1.0"
+  },
+  "devDependencies": {
+    "@babel/preset-react": "^7.27.1",
+    "@locator/babel-jsx": "^0.4.4"
   }
 }
