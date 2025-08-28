@@ -22,6 +22,7 @@ export default function CareerForm() {
             {
                 setTitleError("");
             }
+            break;
         case "stack":
             setStack(value);
             if(!isNaN(value))
@@ -32,6 +33,7 @@ export default function CareerForm() {
             {
                 setStackError("");
             }
+            break;
         case "yoe":
             setYoe(value);
             if(isNaN(value) || value < 0)
@@ -42,6 +44,7 @@ export default function CareerForm() {
             {
                 setYoeError("");
             }
+            break;
     }
 
   }
