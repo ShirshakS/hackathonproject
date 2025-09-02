@@ -40,3 +40,13 @@ a {
     color-scheme: dark;
   }
 }
+
+
+.custom-wrapper{
+  text-align: center;
+  .container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
